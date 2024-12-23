@@ -1,0 +1,42 @@
+{
+  "posts": [
+    { 
+      "id": "1", 
+      "title": "Quality Assurance Techniques in Software Testing", 
+      "views": 120, 
+      "course": "DAT321"
+    },
+    { 
+      "id": "2", 
+      "title": "Introduction to Software Testing Tools", 
+      "views": 250, 
+      "course": "DAT321"
+    }
+  ],
+  "users": [
+    { 
+      "id": "1", 
+      "name": "Cynthia", 
+      "major": "Quality Engineering", 
+      "course": "DAT321"
+    },
+    { 
+      "id": "2", 
+      "name": "Geeshan", 
+      "major": "Quality Engineering", 
+      "course": "DAT321"
+    },
+    { 
+      "id": "3", 
+      "name": "Hannah", 
+      "major": "Quality Engineering", 
+      "course": "DAT321"
+    },
+    { 
+      "id": "4", 
+      "name": "Samuel", 
+      "major": "Quality Engineering", 
+      "course": "DAT321"
+    }
+  ]
+}
