@@ -1,0 +1,74 @@
+{
+	"info": {
+		"_postman_id": "fc0593c9-2383-48fb-b7fe-3c99725465bc",
+		"name": "JSON-SERVER",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "8002299-fc0593c9-2383-48fb-b7fe-3c99725465bc"
+	},
+	"item": [
+		{
+			"name": "get-demo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6a4ac951-face-4174-a057-2b295339337c",
+						"exec": [
+							"pm.test(\"res.status should be 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Each object in the array has the expected properties\", function () {",
+							"    let jsonData = pm.response.json();",
+							"",
+							"    // Check if each item has id, title, views, and course fields",
+							"    jsonData.forEach(item => {",
+							"        pm.expect(item).to.have.property('id');",
+							"        pm.expect(item).to.have.property('title');",
+							"        pm.expect(item).to.have.property('views');",
+							"        pm.expect(item).to.have.property('course');",
+							"    });",
+							"});",
+							"",
+							"pm.test(\"Verify the course field contains a valid course code\", function () {",
+							"    let jsonData = pm.response.json();",
+							"",
+							"    jsonData.forEach(item => {",
+							"        pm.expect(item.course).to.match(/^DAT\\d{3}$/); // Matches courses like DAT321",
+							"    });",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"id": "b053ef88-787a-453e-8203-57813420e0c0",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
