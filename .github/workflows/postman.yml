@@ -10,6 +10,11 @@ jobs:
       - name: Install Postman CLI
         run: |
           curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
+      - name: Start JSON Server
+        run: |
+          npm install -g json-server
+          json-server --watch db.json --port 3000 &
+          sleep 5  # Allow some time for the server to start
       - name: Login to Postman CLI
         run: postman login --with-api-key ${{ secrets.POSTMAN_API_KEY }}
       - name: Run API tests
